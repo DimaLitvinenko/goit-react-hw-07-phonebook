@@ -1,0 +1,27 @@
+.app {
+   text-align: center;
+   font-family: sans-serif;
+}
+
+.app-title {
+   text-align: center;
+   margin-bottom: 20px;
+   margin-top: 0;
+   text-shadow: 0 2.8px 2.2px green, 0 6.7px 6px blue, 0 12.5px 12px red,
+      0 22.3px 17.9px purple, 0 28.8px 28px orange, 0 40px 33px teal;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+   .app-title {
+      animation: app-title-spin 10s linear infinite;
+   }
+}
+
+@keyframes app-title-spin {
+   from {
+      transform: rotateY(0deg);
+   }
+   to {
+      transform: rotateY(360deg);
+   }
+}
