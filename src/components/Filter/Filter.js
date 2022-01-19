@@ -1,16 +1,12 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import contactActions from '../../redux/actions';
+import { getFilter } from '../../redux/selectors';
 import style from './Filter.module.scss';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { contactsFilter } from '../../redux/action';
 
 export default function Filter() {
-  const [filter, setFilter] = useState('');
+  const contactName = useSelector(getFilter);
   const dispatch = useDispatch();
-
-  const onChangeByFilter = ({ target }) => {
-    setFilter(target.value);
-    dispatch(contactsFilter(target.value));
-  };
 
   return (
     <div className={style.container}>
@@ -19,8 +15,10 @@ export default function Filter() {
         id="filter"
         name="filter"
         type="text"
-        value={filter}
-        onChange={onChangeByFilter}
+        value={contactName}
+        onChange={event =>
+          dispatch(contactActions.contactsFilter(event.target.value))
+        }
         placeholder=" "
       />
       <div className={style.cut}></div>

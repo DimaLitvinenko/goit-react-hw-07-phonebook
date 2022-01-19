@@ -1,41 +1,26 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
-import style from './ContactsForm.module.scss';
+import actions from '../../redux/actions';
 import CONFIG from '../../data/formConfig.json';
-import { addContact } from '../../redux/action';
+import style from './ContactsForm.module.scss';
 
-export default function ContactForm() {
+export default function Phonebook() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const dispatch = useDispatch();
 
-  const handleChange = currentTarget => {
-    const { name, value } = currentTarget;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+  const handleChange = ({ target: { name, value } }) => {
+    name === 'name' && setName(value);
+    name === 'number' && setNumber(value);
   };
+
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    const contact = {
-      name,
-      number,
-      id: nanoid(),
-    };
-    dispatch(addContact(contact));
-    reset();
-  };
 
-  const reset = () => {
+    name && number !== '' && dispatch(actions.addContact(name, number));
+
     setName('');
     setNumber('');
   };
@@ -70,3 +55,10 @@ export default function ContactForm() {
     </form>
   );
 }
+
+CONFIG.PropTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  pattern: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
