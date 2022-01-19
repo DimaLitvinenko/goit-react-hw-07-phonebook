@@ -1,19 +1,18 @@
 # goit-react-hw-06-phonebook
 
-- Создан репозиторий `goit-react-hw-06-phonebook`
-- При сдаче домашней работы есть ссылки: на исходные файлы и рабочую страницу
-  проекта на `GitHub Pages` или `Netlify`
-- В Redux-состоянии хранится минимально необходимый набор данных
-- При запуске кода задания, в консоли нету ошибок и предупреждений
-- Для каждого компонента есть отдельная папка с файлом React-компонента и файлом
-  стилей
-- Для компонентов описаны `propTypes`
-- Использована библиотека `Redux Toolkit`
+-  Создан репозиторий `goit-react-hw-06-phonebook`
+-  При сдаче домашней работы есть ссылки: на исходные файлы и рабочую страницу проекта на
+   `GitHub Pages` или `Netlify`
+-  В Redux-состоянии хранится минимально необходимый набор данных
+-  При запуске кода задания, в консоли нету ошибок и предупреждений
+-  Для каждого компонента есть отдельная папка с файлом React-компонента и файлом стилей
+-  Для компонентов описаны `propTypes`
+-  Использована библиотека `Redux Toolkit`
 
 ## Телефонная книга
 
-Выполни рефакторинг кода приложения «Телефонная книга» добавив управление
-состоянием при помощи библиотеки [Redux Toolkit](https://redux-toolkit.js.org/).
+Выполни рефакторинг кода приложения «Телефонная книга» добавив управление состоянием при
+помощи библиотеки [Redux Toolkit](https://redux-toolkit.js.org/).
 
 Пусть Redux-состояние выглядит следующим образом.
 
@@ -26,13 +25,55 @@
 }
 ```
 
-- Создай хранилище с `configureStore()`
-- Создай действия сохранения и удаления контакта, а также обновления фильтра.
-  Используй функцию `createAction()`.
-- Создай редюсеры контактов и фильтра. Используй функцию `createReducer()` или
-  `createSlice()`.
-- Свяжи React-компоненты с Redux-логикой при помощи хуков бибилиотеки
-  [react-redux](https://react-redux.js.org/).
+-  Создай хранилище с `configureStore()`
+-  Создай действия сохранения и удаления контакта, а также обновления фильтра. Используй
+   функцию `createAction()`.
+-  Создай редюсеры контактов и фильтра. Используй функцию `createReducer()` или
+   `createSlice()`.
+-  Свяжи React-компоненты с Redux-логикой при помощи хуков бибилиотеки
+   [react-redux](https://react-redux.js.org/).
+
+# React Redux, Redux Toolkit
+
+## Контекст + Хуки
+
+✅ Плюсы:
+
+-  Простая реализация.
+-  Состояние хранится в пределах компонентов, в которых оно используется.
+-  Не требуется никаких дополнительных зависимостей.
+
+❌ Минусы:
+
+-  Быстро становится беспорядочным.
+-  Сложно отслеживать место хранения состояния из разных уровней.
+-  Нужно писать все с нуля, то есть много «лишнего» кода.
+
+## Библиотеки управления состоянием
+
+-  https://redux-toolkit.js.org
+-  https://mobx.js.org
+-  https://www.apollographql.com/docs/react
+-  https://recoiljs.org
+-  https://hookstate.js.org
+
+✅ Плюсы:
+
+-  Стандартные архитектурные шаблоны.
+-  Удобные инструменты для отладки кода.
+-  Простая расширяемость.
+-  Готовые решения, например для кеширования серверных данных.
+-  Кросс-платформенное использование.
+-  Производительность может быть выше.
+-  Один глобальный экземпляр данных.
+-  Middleware (прослойки).
+
+❌ Минусы:
+
+-  Новая концепция.
+-  Новый синтаксис.
+-  Обновления.
+-  Исправление ошибок.
 
 # React App.
 
@@ -66,17 +107,15 @@ npm i -D prettier eslint@7.11.0
 
 ## 2 - Инициализация lint-staged и husky
 
-Пользователям **MacOS** и **Linux** систем необходимо выполнить в терминале
-следующую команду. Она установит и настроит `husky` и `lint-staged` в
-зависимости от инструментов качества кода из зависимостей проекта в
-`package.json`.
+Пользователям **MacOS** и **Linux** систем необходимо выполнить в терминале следующую
+команду. Она установит и настроит `husky` и `lint-staged` в зависимости от инструментов
+качества кода из зависимостей проекта в `package.json`.
 
 ```bash
 npx mrm lint-staged
 ```
 
-_Пользователям **Windows** необходимо выполнить следующую команду. Она делает
-тоже самое:_
+_Пользователям **Windows** необходимо выполнить следующую команду. Она делает тоже самое:_
 
 ```bash
 npx mrm@2 lint-staged
@@ -86,15 +125,15 @@ npx mrm@2 lint-staged
 
 ### -ESLint
 
-**eslint-config-react** Набор самоуверенных правил ESLint (http://eslint.org)
-(включая все правила), адаптированных для проектов React.
+**eslint-config-react** Набор самоуверенных правил ESLint (http://eslint.org) (включая все
+правила), адаптированных для проектов React.
 
 ```bash
 npm i -S eslint-config-react babel-eslint eslint-plugin-react
 ```
 
-**eslint-config-react-app** Этот пакет включает общую конфигурацию ESLint,
-используемую приложением Create React.
+**eslint-config-react-app** Этот пакет включает общую конфигурацию ESLint, используемую
+приложением Create React.
 
 ```bash
 npm i -S eslint-config-react-app
@@ -110,8 +149,8 @@ npm i -D prop-types
 
 ### -Nano ID
 
-Крошечный, безопасный, удобный для URL генератор уникальных строковых
-идентификаторов для JavaScript.
+Крошечный, безопасный, удобный для URL генератор уникальных строковых идентификаторов для
+JavaScript.
 
 ```bash
 npm i -D nanoid
@@ -127,8 +166,7 @@ npm i -S node-sass@6.0.0
 
 ### -Postcss-loader
 
-Инструмент для преобразования стилей с помощью плагинов JS и PostCSS-loader для
-webpack.
+Инструмент для преобразования стилей с помощью плагинов JS и PostCSS-loader для webpack.
 
 ```bash
 npm i -S postcss-loader postcss
@@ -149,10 +187,7 @@ import 'node_modules/modern-normalize/modern-normalize.css';
 or
 
 ```html
-<link
-   rel="stylesheet"
-   href="node_modules/modern-normalize/modern-normalize.css"
-/>
+<link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css" />
 ```
 
 ## 4 - Добавить npm скрипты в файл package.json:
@@ -181,8 +216,8 @@ or
 
 ## 6 - Настройки VSCode
 
-Для комфортной работы, после установки плагинов, нужно добавить несколько
-настроек редактора для автосохранения и форматирования файлов.
+Для комфортной работы, после установки плагинов, нужно добавить несколько настроек
+редактора для автосохранения и форматирования файлов.
 
 ```json
 {
@@ -239,34 +274,31 @@ for more information.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best
-performance.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+[deployment](https://facebook.github.io/create-react-app/docs/deployment) for more
+information.
 
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at
+any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
+Instead, it will copy all the configuration files and the transitive dependencies
+(webpack, Babel, ESLint, etc) right into your project so you have full control over them.
+All of the commands except `eject` will still work, but they will point to the copied
+scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and
+middle deployments, and you shouldn’t feel obligated to use this feature. However we
+understand that this tool wouldn’t be useful if you couldn’t customize it when you are
+ready for it.
 
 ## Learn More
 

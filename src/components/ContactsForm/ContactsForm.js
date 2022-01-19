@@ -1,65 +1,72 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import CONFIG from '../../data/formConfig.json';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 import style from './ContactsForm.module.scss';
+import CONFIG from '../../data/formConfig.json';
+import { addContact } from '../../redux/action';
 
-export default class Phonebook extends Component {
-	static propTypes = {
-		name: PropTypes.string,
-		number: PropTypes.number,
-	};
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
-	state = {
-		name: '',
-		number: '',
-	};
+  const handleChange = currentTarget => {
+    const { name, value } = currentTarget;
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        return;
+    }
+  };
 
-	toChangeHandler = ({ currentTarget }) => {
-		const { name, value } = currentTarget;
-		this.setState({ [name]: value });
-	};
+  const handleSubmit = event => {
+    event.preventDefault();
+    const contact = {
+      name,
+      number,
+      id: nanoid(),
+    };
+    dispatch(addContact(contact));
+    reset();
+  };
 
-	toSubmitHandler = event => {
-		event.preventDefault();
-		this.props.addContactHandler(this.state);
-		this.setState({ name: '', number: '' });
-	};
+  const reset = () => {
+    setName('');
+    setNumber('');
+  };
 
-	render() {
-		return (
-			<form className={style.form} onSubmit={this.toSubmitHandler}>
-				<ul className={style.form__list}>
-					{CONFIG.map(({ type, name, pattern, title }) => (
-						<li key={name} className={style.form__item}>
-							<input
-								className={style.form__input}
-								id={type}
-								type={type}
-								name={name}
-								pattern={pattern}
-								title={title}
-								value={this.state[name]}
-								onChange={this.toChangeHandler}
-								placeholder=" "
-								required
-							/>
-							<div className={style.cut}></div>
-							<label className={style.placeholder} htmlFor={type}>
-								{name}
-							</label>
-						</li>
-					))}
-				</ul>
-				<button className={style.form__button} type="submit">
-					Add Contact
-				</button>
-			</form>
-		);
-	}
+  return (
+    <form className={style.form} onSubmit={handleSubmit}>
+      <ul className={style.list}>
+        {CONFIG.map(({ type, name, pattern, title }) => (
+          <li key={name} className={style.item}>
+            <input
+              className={style.input}
+              id={type}
+              type={type}
+              name={name}
+              pattern={pattern}
+              title={title}
+              value={name}
+              onChange={handleChange}
+              placeholder=" "
+              required
+            />
+            <div className={style.cut}></div>
+            <label className={style.label} htmlFor={type}>
+              {name}
+            </label>
+          </li>
+        ))}
+      </ul>
+      <button className={style.button} type="submit">
+        Add Contact
+      </button>
+    </form>
+  );
 }
-CONFIG.propTypes = {
-	type: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	pattern: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-};

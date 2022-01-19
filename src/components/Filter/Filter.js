@@ -1,27 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import style from './Filter.module.scss';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { contactsFilter } from '../../redux/action';
 
-export default function Filter({ contactName, findByNameHandler }) {
-   return (
-      <div className={style.filter__container}>
-         <input
-            className={style.filter__input}
-            id="input"
-            type="text"
-            value={contactName}
-            onChange={findByNameHandler}
-            placeholder=" "
-         />
-         <div className={style.cut}></div>
-         <label className={style.filter__label} htmlFor="input">
-            Find contacts by name
-         </label>
-      </div>
-   );
+export default function Filter() {
+  const [filter, setFilter] = useState('');
+  const dispatch = useDispatch();
+
+  const onChangeByFilter = ({ target }) => {
+    setFilter(target.value);
+    dispatch(contactsFilter(target.value));
+  };
+
+  return (
+    <div className={style.container}>
+      <input
+        className={style.input}
+        id="filter"
+        name="filter"
+        type="text"
+        value={filter}
+        onChange={onChangeByFilter}
+        placeholder=" "
+      />
+      <div className={style.cut}></div>
+      <label className={style.label} htmlFor="filter">
+        Find contacts by name
+      </label>
+    </div>
+  );
 }
-
-Filter.propTypes = {
-   contactName: PropTypes.string.isRequired,
-   findByNameHandler: PropTypes.func.isRequired,
-};

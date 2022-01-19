@@ -1,65 +1,68 @@
-.contact__list {
-   box-sizing: border-box;
-   max-width: 500px;
-   min-height: 200px;
-   margin: 0 auto;
-   padding: 40px 60px;
-   text-align: center;
+.list {
+  box-sizing: border-box;
+  max-width: 500px;
+  min-height: 200px;
+  margin: 0 auto;
+  padding: 0;
+  //   padding: 40px 60px;
+  text-align: center;
 
-   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-   background-color: #15172b;
-   border-radius: 20px;
+  // box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  // background-color: #15172b;
+  // border-radius: 20px;
 }
 
-.contact__item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 100%;
-   background-color: #303245;
-   border-radius: 20px;
-   padding: 8px 20px;
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #303245;
+  border-radius: 20px;
+  padding: 8px 20px;
 
-   &:not(:last-child) {
-      margin-bottom: 15px;
-   }
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 
-.contact__name {
-   color: #fff;
+.name {
+  padding-right: 5px;
+  color: #fff;
+  text-transform: capitalize;
 }
 
-.contact__number {
-   padding-right: 10px;
-   color: #fff;
+.number {
+  padding-right: 5px;
+  color: #fff;
 }
 
-.contact__button {
-   padding: 5px;
-   min-width: 80px;
-   min-height: 30px;
+.button {
+  padding: 5px;
+  min-width: 80px;
+  min-height: 30px;
 
-   background-color: rgba(199, 192, 192, 0.72);
-   color: #03e9f4;
-   font-size: 15px;
-   text-decoration: none;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-   letter-spacing: 3px;
+  background-color: rgba(199, 192, 192, 0.72);
+  color: #03e9f4;
+  font-size: 15px;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 3px;
 
-   transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      border-radius 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-   &:hover,
-   &:focus {
-      background-color: #03e9f4;
-      color: #fff;
-      border: none;
-      border-radius: 9px;
-      box-shadow: 0 0 7px #03e9f4, 0 0 28px #03e9f4, 0 0 54px #03e9f4,
-         0 0 100px #03e9f4;
-   }
+  &:hover,
+  &:focus {
+    background-color: #03e9f4;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    box-shadow: 0 0 7px #03e9f4, 0 0 28px #03e9f4, 0 0 54px #03e9f4,
+      0 0 100px #03e9f4;
+  }
 }
