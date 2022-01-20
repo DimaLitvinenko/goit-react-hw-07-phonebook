@@ -28,23 +28,23 @@ export default function Phonebook() {
   return (
     <form className={style.form} onSubmit={handleSubmit}>
       <ul className={style.list}>
-        {CONFIG.map(({ type, name, pattern, title }) => (
-          <li key={name} className={style.item}>
+        {CONFIG.map(field => (
+          <li key={field.name} className={style.item}>
             <input
               className={style.input}
-              id={type}
-              type={type}
-              name={name}
-              pattern={pattern}
-              title={title}
-              value={name}
+              id={field.type}
+              type={field.type}
+              name={field.name}
+              pattern={field.pattern}
+              title={field.title}
+              value={{ name, number }[field.name]}
               onChange={handleChange}
               placeholder=" "
               required
             />
             <div className={style.cut}></div>
-            <label className={style.label} htmlFor={type}>
-              {name}
+            <label className={style.label} htmlFor={field.type}>
+              {field.name}
             </label>
           </li>
         ))}
