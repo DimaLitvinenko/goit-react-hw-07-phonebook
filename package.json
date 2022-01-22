@@ -2,6 +2,8 @@
   "name": "goit-react-hw-07-phonebook",
   "version": "0.1.0",
   "private": true,
+  "description": "goit-react-hw-07-phonebook",
+  "author": "Dimon4, dimaly.too@gmail.com",
   "homepage": "https://DimaLitvinenko.github.io/goit-react-hw-07-phonebook",
   "dependencies": {
     "@redux-devtools/extension": "^3.1.0",
@@ -9,20 +11,19 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-react": "^7.27.1",
+    "axios": "^0.25.0",
     "gh-pages": "^3.2.3",
+    "json-server": "^0.17.0",
     "modern-normalize": "^1.1.0",
     "node-sass": "^6.0.0",
     "postcss": "^8.4.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^5.0.10",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
-    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "web-vitals": "^1.1.2"
   },
@@ -33,7 +34,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "api-server": "json-server --port 4040 --delay 300 --watch db.json"
   },
   "eslintConfig": {
     "extends": [
@@ -62,5 +64,9 @@
     "nanoid": "^3.1.30",
     "prettier": "^2.5.1",
     "prop-types": "^15.7.2"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
