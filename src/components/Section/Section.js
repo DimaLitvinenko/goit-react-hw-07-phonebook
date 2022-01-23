@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
 import style from './Section.module.scss';
 
-export default function Section({ children }) {
-	return <section className={style.section}>{children}</section>;
-}
+const Section = ({ children }) => {
+  return (
+    <>
+      <section className={style.section}>{children}</section>
+    </>
+  );
+};
+
+export default Section;
 
 Section.propTypes = {
-	children: PropTypes.array.isRequired,
+  children: PropTypes.array.isRequired,
 };
