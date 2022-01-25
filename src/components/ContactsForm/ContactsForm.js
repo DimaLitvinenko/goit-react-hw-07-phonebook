@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/phonebook/contacts-operations';
-// import CONFIG from '../../data/formConfig.json';
-import { getContactsItems } from 'redux/phonebook/contacts-selectors';
+import { addContact } from '../../redux/phonebook/contacts-operations';
+import { getContacts } from '../../redux/phonebook/contacts-selectors';
 import style from './ContactsForm.module.scss';
 
 export default function ContactsForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
-  // const contArr = useSelector(state => state.contacts.items);
-  const contArr = useSelector(getContactsItems);
-
+  const contArr = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const contactToServer = ({ name, phone }) =>
@@ -24,7 +21,7 @@ export default function ContactsForm() {
         setName(e.currentTarget.value);
         // setId(uuidv4());
         break;
-      case 'number':
+      case 'phone':
         setPhone(e.currentTarget.value);
         break;
       default:
@@ -77,7 +74,7 @@ export default function ContactsForm() {
               className={style.input}
               id="phone"
               type="tel"
-              name="number"
+              name="phone"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with + !"
               value={phone}
@@ -102,7 +99,7 @@ export default function ContactsForm() {
 
 ContactsForm.propTypes = {
   subscriber: PropTypes.string,
-  number: PropTypes.string,
+  phone: PropTypes.string,
 };
 
 /*

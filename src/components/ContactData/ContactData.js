@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import style from './ContactData.module.scss';
 import { useDispatch } from 'react-redux';
-import { delContact } from 'redux/phonebook/contacts-operations';
+import { deleteContact } from '../../redux/phonebook/contacts-operations';
 
 const ContactData = ({ contactObj }) => {
   const dispatch = useDispatch();
-  const deleteContact = e => {
-    dispatch(delContact(e.target.dataset.key));
+
+  const onDelContact = e => {
+    dispatch(deleteContact(e.target.dataset.key));
   };
 
-  const { name, id, phone } = contactObj;
+  const { id, name, phone } = contactObj;
   return (
     <>
       <p className={style.name}>{name}:</p>
@@ -18,7 +19,7 @@ const ContactData = ({ contactObj }) => {
         className={style.button}
         type={'button'}
         data-key={id}
-        onClick={deleteContact}
+        onClick={onDelContact}
       >
         Delete
       </button>
