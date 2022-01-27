@@ -7,7 +7,7 @@ export const fetchContacts = createAsyncThunk(
     try {
       const { data } = await axios.get(
         //  "https://61e42cd7fbee6800175eb21d.mockapi.io/contacts"
-        'https://61ec3caaf3011500174d2116.mockapi.io/api/dimonly/contacts',
+        'https://61ec3caaf3011500174d2116.mockapi.io/contacts',
       );
       return data;
     } catch (error) {
@@ -23,7 +23,7 @@ export const addContact = createAsyncThunk(
     try {
       const { data } = await axios.post(
         // "https://61e42cd7fbee6800175eb21d.mockapi.io/contacts",
-        'https://61ec3caaf3011500174d2116.mockapi.io/api/dimonly/contacts',
+        'https://61ec3caaf3011500174d2116.mockapi.io/contacts',
         name,
         phone,
       );
@@ -41,7 +41,7 @@ export const deleteContact = createAsyncThunk(
     try {
       const { data } = await axios.delete(
         // `https://61e42cd7fbee6800175eb21d.mockapi.io/contacts/${id}`,
-        `https://61ec3caaf3011500174d2116.mockapi.io/api/dimonly/contacts/${id}`,
+        `https://61ec3caaf3011500174d2116.mockapi.io/contacts/${id}`,
       );
       return data.id;
     } catch (error) {
