@@ -8,7 +8,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import phonebookReducer from './phonebook/contacts-reducer';
+import phonebookReducer from './phonebook/phonebook-reducers';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,18 +27,9 @@ export const store = configureStore({
 });
 
 // ======= Vanilla Redux
+
 // const rootReducer = combineReducers({
 //   phonebook: persistReducer(contactsPersistConfig, phonebookReducer),
 // });
+
 // const store = createStore(rootReducer, composeWithDevTools());
-
-// import { configureStore } from '@reduxjs/toolkit';
-// import contactsReducer from './phonebook/contacts-reducer';
-
-// const store = configureStore({
-//   reducer: {
-//     contacts: contactsReducer,
-//   },
-// });
-
-// export default store;

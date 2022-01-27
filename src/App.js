@@ -1,27 +1,31 @@
-import './App.scss';
-import Container from './components/Container/Container';
-import Section from './components/Section/Section';
-import ContactsForm from './components/ContactsForm/ContactsForm';
-import ContactsList from './components/ContactsList/ContactsList';
-import Filter from './components/Filter/Filter';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { contactOperations } from './redux/phonebook';
+import Container from './components/Container';
+// import Section from './components/Section';
+import Form from './components/Form';
+import Filter from './components/Filter';
+import Contacts from './components/Contacts';
+import style from './App.module.scss';
 
-export default function App() {
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactOperations.fetchContacts());
+  }, [dispatch]);
+
   return (
-    <main className="app">
+    <main className={style.app}>
       <Container>
-        <Section>
-          <h1 className="app-title">Phonebook</h1>
-          <ContactsForm />
-        </Section>
-
-        <Section>
-          <h2 className="app-title">Contacts</h2>
-          <div className="app-container">
-            <Filter />
-            <ContactsList />
-          </div>
-        </Section>
+        <h1 className={style.title}>Phonebook</h1>
+        <Form />
+        <h2 className={style.title}>Contacts</h2>
+        <Filter />
+        <Contacts />
       </Container>
     </main>
   );
-}
+};
+
+export default App;

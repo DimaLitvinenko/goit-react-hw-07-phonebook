@@ -1,13 +1,15 @@
-// .container {
-//   position: relative;
-//   box-sizing: border-box;
-//   width: fit-content;
-//   //   height: 50px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-bottom: 40px;
-//   text-align: center;
-// }
+.wrapper {
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 500px;
+  min-height: 200px;
+  margin: 0 auto;
+  padding: 40px 60px;
+
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  background-color: #15172b;
+  border-radius: 20px;
+}
 
 .input {
   box-sizing: border-box;
