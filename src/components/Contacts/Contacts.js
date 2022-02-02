@@ -1,9 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { contactOperations } from '../../redux/phonebook';
-import {
-  getVisibleContacts,
-  getContacts,
-} from '../../redux/phonebook/phonebook-selectors';
+import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
 import style from './Contacts.module.scss';
 
 const Contacts = () => {

@@ -6,8 +6,8 @@ const Spinner = () => {
   return (
     <div className={style.loaderBox}>
       <Loader
-        type="Oval" //Audio Bars BallTriangle Circles Grid Oval Puff Rings TailSpin ThreeDots Hearts
-        color="#dadada"
+        type="TailSpin" //Audio Bars BallTriangle Circles Grid Oval Puff Rings TailSpin ThreeDots Hearts
+        color="blue"
         height={90}
         width={90}
         timeout={5000} // ms

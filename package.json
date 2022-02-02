@@ -12,20 +12,22 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.25.0",
-    "eslint-config-react-app": "^7.0.0",
     "gh-pages": "^3.2.3",
     "modern-normalize": "^1.1.0",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-loader-spinner": "^5.0.10",
     "react-redux": "^7.2.6",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "web-vitals": "^1.1.2",
-    "yarn": "^1.22.17"
+    "slugify": "^1.6.5",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -35,7 +37,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "api-server": "json-server --port 4040 --delay 300 --watch db.json"
+    "server": "json-server --watch src/db.json"
   },
   "eslintConfig": {
     "extends": [
@@ -58,13 +60,18 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-react": "^7.28.0",
     "husky": ">=6",
+    "json-server": "^0.17.0",
     "lint-staged": ">=10",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
-    "prop-types": "^15.7.2"
-  },
-  "lint-staged": {
-    "*.js,jsx": "eslint --cache --fix",
-    "*.{js,jsx,css,md}": "prettier --write"
+    "prop-types": "^15.7.2",
+    "redux-thunk": "^2.4.1",
+    "regex-parser": "^2.2.11"
   }
+  
 }

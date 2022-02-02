@@ -8,7 +8,16 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import logger from 'redux-logger';
 import phonebookReducer from './phonebook/phonebook-reducers';
+
+const myMiddleware = store => next => action => {
+  console.log('Моя прослойка action', action);
+  // console.log('Моя прослойка next', next);
+  // console.log('Моя прослойка store.getState()', store.getState());
+
+  next(action);
+};
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -16,11 +25,13 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+  myMiddleware,
+  logger,
 ];
 
 export const store = configureStore({
   reducer: {
-    phonebook: phonebookReducer,
+    contacts: phonebookReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

@@ -1,5 +1,11 @@
 import { createAction } from '@reduxjs/toolkit';
 
+// const asyncActionCreator = args => dispatch => {
+//   fetch()
+//     .then(x => dispatch(x))
+//     .catch(y => dispatch(y));
+// };
+
 export const changeFilter = createAction('contact/changeFilter');
 
 // ======= Redux toolkit actions
